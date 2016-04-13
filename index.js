@@ -61,7 +61,7 @@ function formatAttrs(attributes, opts) {
       output += ' ';
     }
 
-    if (!value && booleanAttributes[key]) {
+    if (!value && (booleanAttributes[key] || opts.allowEmptyAttributeValues)) {
       output += key;
     } else {
       output += key + '="' + (opts.decodeEntities ? entities.encodeXML(value) : value) + '"';
